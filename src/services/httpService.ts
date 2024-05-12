@@ -5,7 +5,7 @@ interface ReadResponse<T> {
   results: T[];
 }
 
-class HttpService<T> {
+export class HttpService<T> {
   endpoint: string;
 
   constructor(endpoint: string) {
