@@ -1,6 +1,6 @@
 import gameService from "../services/gameService";
-import useFetch from "./useFetch";
+import useData from "./useData";
 
-const useGames = () => useFetch(gameService);
+const useGames = () => useData(gameService);
 
 export default useGames;

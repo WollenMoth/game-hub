@@ -1,6 +1,6 @@
 import genreService from "../services/genreService";
-import useFetch from "./useFetch";
+import useData from "./useData";
 
-const useGenres = () => useFetch(genreService);
+const useGenres = () => useData(genreService);
 
 export default useGenres;

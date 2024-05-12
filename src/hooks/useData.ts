@@ -2,8 +2,8 @@ import { CanceledError } from "axios";
 import { useEffect, useState } from "react";
 import { HttpService } from "../services/httpService";
 
-const useFetch = <T>(service: HttpService<T>) => {
-  const [results, setResults] = useState<T[]>([]);
+const useData = <T>(service: HttpService<T>) => {
+  const [data, setData] = useState<T[]>([]);
   const [error, setError] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -13,7 +13,7 @@ const useFetch = <T>(service: HttpService<T>) => {
     const { request, cancel } = service.read();
 
     request
-      .then((res) => setResults(res.data.results))
+      .then((res) => setData(res.data.results))
       .catch((err) => {
         if (err instanceof CanceledError) return;
         setError(err.message);
@@ -23,7 +23,7 @@ const useFetch = <T>(service: HttpService<T>) => {
     return () => cancel();
   }, [service]);
 
-  return { results, setResults, error, setError, isLoading };
+  return { data, setResults: setData, error, setError, isLoading };
 };
 
-export default useFetch;
+export default useData;

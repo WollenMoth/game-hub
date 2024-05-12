@@ -4,7 +4,7 @@ import GameCard from "./GameCard";
 import GameCardSkeleton from "./GameCardSkeleton";
 
 const GameGrid = () => {
-  const { results: games, error, isLoading } = useGames();
+  const { data: games, error, isLoading } = useGames();
   const skeletons = Array.from({ length: 6 }, (_, index) => index);
 
   return (
