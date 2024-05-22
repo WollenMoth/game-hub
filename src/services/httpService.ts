@@ -1,3 +1,4 @@
+import { AxiosRequestConfig } from "axios";
 import http from "./apiClient";
 
 interface ReadResponse<T> {
@@ -12,11 +13,12 @@ export class HttpService<T> {
     this.endpoint = endpoint;
   }
 
-  read() {
+  read(requestConfig?: AxiosRequestConfig) {
     const controller = new AbortController();
 
     const request = http.get<ReadResponse<T>>(this.endpoint, {
       signal: controller.signal,
+      ...requestConfig,
     });
 
     return { request, cancel: () => controller.abort() };
