@@ -13,19 +13,20 @@ type Props = {
 
 const SortSelector = ({ selectedOrder, onOrderSelect }: Props) => {
   const fields: Order[] = [
+    { label: "Relevance", value: "" },
     { label: "Name", value: "name" },
-    { label: "Release date", value: "released" },
-    { label: "Date added", value: "added" },
-    { label: "Date created", value: "created" },
-    { label: "Last updated", value: "updated" },
-    { label: "Rating", value: "rating" },
-    { label: "Metacritic", value: "metacritic" },
+    { label: "Release date", value: "-released" },
+    { label: "Date added", value: "-added" },
+    { label: "Rating", value: "-rating" },
+    { label: "Popularity", value: "-metacritic" },
   ];
+
+  if (!selectedOrder) selectedOrder = fields[0];
 
   return (
     <Menu>
       <MenuButton as={Button} rightIcon={<BsChevronDown />}>
-        {selectedOrder ? `Ordered by: ${selectedOrder?.label}` : "Order"}
+        Ordered by: {selectedOrder?.label}
       </MenuButton>
       <MenuList>
         {fields.map((field) => (
