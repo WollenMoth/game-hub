@@ -1,6 +1,5 @@
-import genreService from "../services/genreService";
-import useData from "./useData";
+import genres from "../data/genres";
 
-const useGenres = () => useData(genreService);
+const useGenres = () => ({ data: genres, isLoading: false, error: null });
 
 export default useGenres;
