@@ -11,7 +11,7 @@ import {
 } from "react-icons/fa6";
 import { MdPhoneIphone } from "react-icons/md";
 import { SiNintendoswitch } from "react-icons/si";
-import { Platform } from "../services/gameService";
+import { Platform } from "../services/platformService";
 
 type Props = {
   platforms: Platform[];
